@@ -1,6 +1,9 @@
 dist: trusty
 sudo: required
 language: node_js
+cache:
+  directories:
+  - node_modules
 notifications:
   email:
     on_failure: always

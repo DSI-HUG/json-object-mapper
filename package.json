@@ -25,15 +25,14 @@
     "license": "MIT",
     "homepage": "https://github.com/shakilsiraj/json-object-mapper",
     "scripts": {
-        "watch-compile": "node_modules/.bin/tsc -w -p .",
-        "build": "node_modules/.bin/tsc -p .",
-        "rollup": "./node_modules/.bin/rollup -c",
+        "watch-compile": "tsc -w -p .",
+        "build": "tsc -p .",
+        "rollup": "rollup -c",
         "dist": "npm run build && npm run test && npm run rollup",
-        "test": "node_modules/.bin/jasmine-node bin --verbose --junitreport --noColor",
-        "test-karma": "node_modules/.bin/karma start ./karma.conf.js",
-        "post-install": "node_modules/.bin/typings install",
-        "tslint": "tslint --project ./tsconfig.json --type-check",
-        "lint": "npm run tslint"
+        "test": "jasmine-node bin --verbose --junitreport --noColor",
+        "test-karma": "karma start ./karma.conf.js",
+        "post-install": "typings install",
+        "lint": "tslint --project ./tsconfig.json --type-check"
     },
     "devDependencies": {
         "@types/jasmine": "~2.5.53",

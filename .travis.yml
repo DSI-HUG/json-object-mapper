@@ -16,12 +16,13 @@ branches:
   only:
   - master
   - dev
+before_install:
+- rm -rf node_modules
 before_script:
 - npm prune
 - yarn run post-install
 - yarn run lint
 script:
-- yarn run test-karma
 - yarn run dist
 env:
   global:

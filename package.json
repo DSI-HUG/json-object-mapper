@@ -1,5 +1,5 @@
 {
-  "name": "json-object-mapper",
+  "name": "@deja-js/json-object-mapper",
   "version": "1.4.0",
   "description": "A TypeScript library to serialize and deserialize JSON objects in a fast and non-recursive way",
   "bugs": "https://github.com/DSI-HUG/json-object-mapper/issues",

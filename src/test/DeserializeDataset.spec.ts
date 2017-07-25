@@ -1,4 +1,5 @@
 import { Map } from 'es6-shim';
+import 'reflect-metadata';
 import { AccessType, Deserializer, JsonProperty, JsonPropertyDecoratorMetadata } from '../main/DecoratorMetadata';
 import { ObjectMapper } from '../main/index';
 

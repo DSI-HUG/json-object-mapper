@@ -1,5 +1,5 @@
 import { AccessType, CacheKey, JsonPropertyDecoratorMetadata, Serializer } from './DecoratorMetadata';
-import { Constants, getCachedType, getJsonPropertyDecoratorMetadata, getKeyName, getTypeName, getTypeNameFromInstance, isArrayType, isSimpleType } from './ReflectHelper';
+import { Constants, getCachedType, getJsonPropertyDecoratorMetadata, getKeyName, getTypeName, getTypeNameFromInstance, isArrayType, isSimpleType, METADATA_JSON_PROPERTIES_NAME } from './ReflectHelper';
 
 export interface SerializationStructure {
     id: string; /** id of the current structure */
@@ -77,7 +77,15 @@ export const mergeObjectOrArrayValues = (instanceStructure: SerializationStructu
 export const SerializeObjectType = (parentStructure: SerializationStructure, instanceStructure: SerializationStructure, instanceIndex: number): Array<SerializationStructure> => {
     const furtherSerializationStructures: Object = new Object();
     instanceStructure.visited = true;
-    Object.keys(instanceStructure.instance).forEach((key: string) => {
+    let objectKeys: string[] = Object.keys(instanceStructure.instance);
+    objectKeys = objectKeys.concat((Reflect.getMetadata(METADATA_JSON_PROPERTIES_NAME, instanceStructure.instance) || []).filter((item: string) => {
+        if (instanceStructure.instance.constructor.prototype.hasOwnProperty(item) && Object.getOwnPropertyDescriptor(instanceStructure.instance.constructor.prototype, item).get === undefined) {
+            // Property does not have getter
+            return false;
+        }
+        return objectKeys.indexOf(item) < 0;
+    }));
+    objectKeys.forEach((key: string) => {
         const keyInstance = instanceStructure.instance[key];
         // tslint:disable-next-line:triple-equals
         if (keyInstance != undefined) {

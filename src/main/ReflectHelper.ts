@@ -4,6 +4,13 @@
 import 'reflect-metadata';
 import { JSON_PROPERTY_DECORATOR_NAME, JsonPropertyDecoratorMetadata } from './DecoratorMetadata';
 
+declare var Reflect: any;
+
+/**
+ * Reflect Metadata json properties storage name.
+ */
+export const METADATA_JSON_PROPERTIES_NAME = 'JsonProperties';
+
 /**
  * Returns the JsonProperty decorator metadata.
  */
@@ -29,7 +36,12 @@ export const getKeyName = (target: any, key: string): string => {
  * Returns the JsonPropertyDecoratorMetadata for the property
  */
 export const getJsonPropertyDecorator = (metadata: any) => {
-    return getPropertyDecorator(JSON_PROPERTY_DECORATOR_NAME, metadata);
+    return (target: any, propertyKey: string) => {
+        const properties: string[] = Reflect.getMetadata(METADATA_JSON_PROPERTIES_NAME, target) || [];
+        properties.push(propertyKey);
+        Reflect.defineMetadata(METADATA_JSON_PROPERTIES_NAME, properties, target);
+        getPropertyDecorator(JSON_PROPERTY_DECORATOR_NAME, metadata)(target, propertyKey);
+    };
 };
 
 export const getPropertyDecorator = (metadataKey: string, metadata: any) => {

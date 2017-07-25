@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { AccessType, Deserializer, JsonProperty, JsonPropertyDecoratorMetadata, Serializer } from '../main/DecoratorMetadata';
 import { CacheKey } from '../main/DecoratorMetadata';
 import { deserializers, getOrCreateDeserializer } from '../main/DeserializationHelper';

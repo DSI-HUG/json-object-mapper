@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { AccessType, JsonProperty, JsonPropertyDecoratorMetadata } from '../main/DecoratorMetadata';
 import { ObjectMapper } from '../main/index';
 import { isArrayType } from '../main/ReflectHelper';
@@ -62,8 +63,6 @@ describe('Testing deserialize function with large datasets', () => {
 
 });
 
-const cain = `Earline "jr" Cain`;
-
 const largeDataSet1: any = {
     'DATA': [
         {
@@ -75,7 +74,7 @@ const largeDataSet1: any = {
             'picture': 'http://placehold.it/32x32',
             'age': 23,
             'eyeColor': 'green',
-            'name': cain,
+            'name': 'Earline Cain',
             'gender': 'female',
             'company': 'COMTOURS',
             'email': 'earlinecain@comtours.com',

@@ -1,65 +1,64 @@
 {
-  "name": "@deja-js/json-object-mapper",
-  "version": "1.4.0",
-  "description": "A TypeScript library to serialize and deserialize JSON objects in a fast and non-recursive way",
-  "bugs": "https://github.com/DSI-HUG/json-object-mapper/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/DSI-HUG/json-object-mapper.git"
-  },
-  "keywords": [
-    "JSON",
-    "TypeScript",
-    "JSON Serialize",
-    "JSON Deserialize",
-    "JsonProperty",
-    "DTO",
-    "Data Transfer Objects"
-  ],
-  "author": "Team DSI-HUG - Hôpital Univesitaire de Genève - DSI - Domaine Patient",
-  "main": "./ObjectMapper.es2015.js",
-  "typings": "./ObjectMapper.d.ts",
-  "moduleName": "ObjectMapper",
-  "license": "MIT",
-  "homepage": "https://github.com/DSI-HUG/json-object-mapper",
-  "scripts": {
-    "watch-compile": "tsc -w -p .",
-    "build": "tsc -p .",
-    "rollup": "rollup -c",
-    "dist": "npm run build && npm run test && npm run rollup && copy package.json dist && npm run generate-dts",
-    "generate-dts": "dts-generator --name ObjectMapper --project . --out ./dist/ObjectMapper.d.ts",
-    "test": "jasmine-node bin --verbose --junitreport --noColor",
-    "test-karma": "karma start ./karma.conf.js",
-    "post-install": "typings install",
-    "lint": "tslint --project ./tsconfig.json --type-check"
-  },
-  "devDependencies": {
-    "@types/jasmine": "~2.5.53",
-    "copy": "^0.3.0",
-    "dts-generator": "^2.1.0",
-    "es6-shim": "~0.35.3",
-    "jasmine": "~2.5.2",
-    "jasmine-core": "~2.3.4",
-    "jasmine-node": "~1.14.5",
-    "karma": "~1.3.0",
-    "karma-chrome-launcher": "~2.0.0",
-    "karma-firefox-launcher": "~1.0.0",
-    "karma-jasmine": "~1.1.0",
-    "karma-requirejs": "~1.1.0",
-    "karma-safari-launcher": "~1.0.0",
-    "karma-spec-reporter": "0.0.26",
-    "karma-typescript": "~2.1.4",
-    "process": "~0.11.9",
-    "rollup": "~0.38.3",
-    "rollup-plugin-typescript": "~0.8.1",
-    "tslint": "~5.5.0",
-    "typescript": "~2.4.2",
-    "typings": "^2.1.1"
-  },
-  "dependencies": {
-    "reflect-metadata": "~0.1.8"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+    "name": "@deja-js/json-object-mapper",
+    "version": "1.4.0",
+    "description": "A TypeScript library to serialize and deserialize JSON objects in a fast and non-recursive way",
+    "bugs": "https://github.com/DSI-HUG/json-object-mapper/issues",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DSI-HUG/json-object-mapper.git"
+    },
+    "keywords": [
+        "JSON",
+        "TypeScript",
+        "JSON Serialize",
+        "JSON Deserialize",
+        "JsonProperty",
+        "DTO",
+        "Data Transfer Objects"
+    ],
+    "author": "Team DSI-HUG - Hôpital Univesitaire de Genève - DSI - Domaine Patient",
+    "main": "./ObjectMapper.es2015.js",
+    "typings": "./ObjectMapper.d.ts",
+    "moduleName": "ObjectMapper",
+    "license": "MIT",
+    "homepage": "https://github.com/DSI-HUG/json-object-mapper",
+    "scripts": {
+        "watch-compile": "tsc -w -p .",
+        "build": "tsc -p .",
+        "rollup": "rollup -c",
+        "dist": "npm run build && npm run test && npm run rollup && copy package.json dist && npm run generate-dts",
+        "generate-dts": "dts-generator --name ObjectMapper --project . --out ./dist/ObjectMapper.d.ts",
+        "test": "jasmine-node bin --verbose --junitreport --noColor",
+        "test-karma": "karma start ./karma.conf.js",
+        "post-install": "typings install",
+        "lint": "tslint --project ./tsconfig.json --type-check"
+    },
+    "devDependencies": {
+        "@types/jasmine": "~2.5.53",
+        "copy": "^0.3.0",
+        "dts-generator": "^2.1.0",
+        "es6-shim": "~0.35.3",
+        "jasmine": "~2.5.2",
+        "jasmine-core": "~2.3.4",
+        "jasmine-node": "~1.14.5",
+        "karma": "~1.3.0",
+        "karma-chrome-launcher": "~2.0.0",
+        "karma-firefox-launcher": "~1.0.0",
+        "karma-jasmine": "~1.1.0",
+        "karma-requirejs": "~1.1.0",
+        "karma-safari-launcher": "~1.0.0",
+        "karma-spec-reporter": "0.0.26",
+        "karma-typescript": "~2.1.4",
+        "process": "~0.11.9",
+        "reflect-metadata": "~0.1.10",
+        "rollup": "~0.38.3",
+        "rollup-plugin-typescript": "~0.8.1",
+        "tslint": "~5.5.0",
+        "typescript": "~2.4.2",
+        "typings": "^2.1.1"
+    },
+    "dependencies": {},
+    "publishConfig": {
+        "access": "public"
+    }
 }

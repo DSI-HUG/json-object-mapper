@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { AccessType, Deserializer, JsonProperty, JsonPropertyDecoratorMetadata, Serializer } from '../main/DecoratorMetadata';
 import { getOrCreateDeserializer } from '../main/DeserializationHelper';
 import { ObjectMapper } from '../main/index';
@@ -339,6 +340,20 @@ describe('Testing deserialize array function', () => {
         expect(friends[29].email).toBe('deidrepuckett@comverges.com');
         expect(friends[25].uuid).toBe('a514f653-c0ac-4028-921e-43bd3c32c14c');
         expect(friends[18].gender).toBe('male');
+    });
+
+    it('Testing array serialization 3', () => {
+
+        class Event {
+            id: number = undefined;
+            location: string = undefined;
+        }
+
+        const json = [];
+
+        const eventsArray: Event[] = ObjectMapper.deserializeArray(Event, json);
+        expect(Array.isArray(eventsArray)).toBe(true);
+        expect(eventsArray.length === 0);
     });
 });
 
